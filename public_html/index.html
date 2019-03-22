@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <style type="text/css">
+            
+            body{font-size:17px; font-family: arial , sans-serif}
+            
+            .modal {
+               
+                display:none; 
+                z-index: 1;
+                position: fixed;
+                background: rgba(0,0,0);
+                background: rgba(0,0,0,0,4);
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                padding-top: 150px;
+            }
+            
+            .modal-icerik {
+                
+                position: relative;
+                background: white;
+                width: 60%;
+                margin: auto;
+                padding: 0;
+                border: 1px solid #888;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0,2), 0 6px 20px 0 rgba(0,0,0,0,19);
+                animation-name: modal;
+                animation-duration: 0.4s;
+            }
+            
+            @keyframes modal{  //yukardan asagı kaydırma
+                
+                from {top: -300px; opacity: 0}
+                to {top: 0; opacity: 1}
+            }
+            
+            .modal-ust {
+                
+                padding: 2px 16px;
+                background: dodgerblue;
+                color: white;
+            }
+            
+            .modal-govde {
+                
+                padding: 2px 16px;
+            }
+            
+            .kapat {
+                
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            
+            .kapat:hover,
+            .kapat:focus {
+                
+                color: black;
+            }
+            
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <button id ="btn">modalı ac</button>
+        
+        <div class="modal" id="modal">
+            <div class="modal-icerik">
+                <div class="modal-ust">
+                    <span class="kapat">&times;</span>
+                    <h2>modal ust baslık</h2>
+                </div>
+                
+                <div class="modal-govde">
+                    <p>test yazı</p>
+                    <p>diğer yazı</p>
+                </div>
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            
+            var modal = document.getElementById("modal");
+            var btn = document.getElementById("btn");
+            var kapat = document.getElementsByClassName("kapat")[0];
+            
+            btn.onclick = function(){
+                
+                
+                modal.style.display = "block";
+            }
+            
+            kapat.onclick = function(){
+                
+                modal.style.display = "none";
+            }
+            
+            window.onclick = function(olay){
+                if(olay.target == modal){
+                    modal.style.display = "none";
+                }
+            }
+           
+            
+            
+        </script>
+        
+    </body>
+</html>
